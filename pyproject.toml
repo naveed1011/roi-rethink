@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "roi-rethink"
+version = "0.1.0"
+description = "Lightweight re-implementation of BrReMark's two-turn mark-and-rethink visual reasoning loop."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = [
+    "Pillow>=10.0",
+    "numpy>=1.24",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+vlm = ["openai>=1.30"]
+demo = ["gradio>=4.0"]
+figures = ["matplotlib>=3.7"]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["roi_rethink*"]
