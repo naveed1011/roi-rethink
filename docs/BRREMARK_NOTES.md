@@ -69,18 +69,3 @@ BrReMark's `eval/` uses an LLM judge with multi-dimensional 0–10 scoring.
 | vLLM two-turn inference | any OpenAI-compatible VLM + `MockVLM` | `roi_rethink/vlm.py` |
 | `eval/run_judge.py` | `eval.evaluate` + `scripts/run_eval.py` | `roi_rethink/eval.py` |
 | Lingshu-7B / VeRL / GRPO training | *not included* (out of scope; see "Next steps") | — |
-
-## Next steps (if you want to go deeper)
-
-1. **Ablation:** compare one-shot vs two-turn on the same VLM and same
-   synthetic set; measure IoU lift. This is a real, publishable-lite
-   experiment you can run for ~$5 of API calls.
-2. **Plug in a real judge:** implement `judge_fn` with an LLM call that
-   scores the final answer against `anomaly_kind`, and re-run eval with the
-   full Phase-1 reward.
-3. **Fine-tune a small VLM** (e.g. a 1–3B open VLM on a single GPU) on
-   synthetic two-turn trajectories with the reward above — that is the
-   full BrReMark pipeline at small scale. `docs/` has the data schema to
-   get you started.
-4. **Swap the domain:** replace synthetic scans with chest X-rays
-   (NIH ChestX-ray14 is public) — same loop, real medical domain.
